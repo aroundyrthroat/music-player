@@ -9,34 +9,6 @@ const playpause = document.getElementById("playpause-btn");
 const nexttrack = document.getElementById("next-btn");
 const audio = document.getElementById("mu");
 
-/*your track list! to add more than 3 songs just add another one of these -comma at the end included!!
-
-{
-    path: " audio source here, highly recommend using catbox for these",
-    title: " song name here ",
-    artist: " artist name here ",
-  },  
-  
-and fill it in! make sure you place it before the bracket and semicolon that ends the track list */
-let track_index = 0;
-let track_list = [
-  {
-    path: "https://files.catbox.moe/og39hn.mp3",
-    title: "Still Into You",
-    artist: "Paramore",
-  },
-  {
-    path: "https://files.catbox.moe/hsphac.mp3",
-    title: "Habits (Stay High)",
-    artist: "Tove Lo",
-  },
-  {
-   path: "https://files.catbox.moe/qnmvb8.mp3",
-   title: "I Keep A Diary",
-   artist: "Braid",
-  },
-];
-
 /*makes the play pause button function*/
 function playPauseTrack() {
   if (audio.paused == true) {
@@ -44,8 +16,8 @@ function playPauseTrack() {
     playpause.innerHTML =
       "⏸";
   } else if (audio.paused == false) {
-   audio.pause();
-   playpause.innerHTML =
+    audio.pause();
+    playpause.innerHTML =
       "▶";
   }
 }
@@ -55,25 +27,25 @@ function nextTrack() {
   if (track_index < track_list.length - 1)
     track_index += 1;
   else track_index = 0;
- 
+
   /*loads and plays the next track*/
   loadTrack(track_index);
   audio.play();
   playpause.innerHTML =
-      "⏸";
+    "⏸";
 }
- 
+
 function prevTrack() {
   /* Goes back to the first track if the current one is the last in the track list */
   if (track_index > 0)
     track_index -= 1;
   else track_index = track_list.length - 1;
-   
+
   /*loads and plays the previous track*/
   loadTrack(track_index);
   audio.play();
   playpause.innerHTML =
-      "⏸";
+    "⏸";
 }
 
 /*makes the tracks duration and current time to display in a minutes:seconds format*/
@@ -86,7 +58,7 @@ const calculateTime = (secs) => {
 
 /*gets the current time of the audio track and displays it*/
 audio.addEventListener('loadedmetadata', () => {
-trackcurrtime.innerHTML = calculateTime(audio.currentTime);
+  trackcurrtime.innerHTML = calculateTime(audio.currentTime);
 });
 
 audio.addEventListener('timeupdate', () => {
@@ -102,10 +74,10 @@ audio.addEventListener('timeupdate', () => {
   slider.value = Math.floor(audio.currentTime);
 });
 
- /*gets the full length of the audio track and displays it*/
+/*gets the full length of the audio track and displays it*/
 audio.addEventListener('loadedmetadata', () => {
-trackduration.innerHTML = calculateTime(audio.duration);
-slider.max = Math.floor(audio.duration);
+  trackduration.innerHTML = calculateTime(audio.duration);
+  slider.max = Math.floor(audio.duration);
 });
 
 /* resets everything to get ready for the next track*/
@@ -118,20 +90,20 @@ function resetValues() {
 /* actually loads a new track and displays all its info*/
 function loadTrack(track_index) {
   resetValues();
- 
+
   /*loads the track*/
   audio.src = track_list[track_index].path;
   audio.load();
- 
-  /*gives the title and artist of the track*/
-info.innerHTML =
-  "<b>" + track_list[track_index].title + "</b> <br> <small>" + track_list[track_index].artist + "</small>";
-  
+
+  /*gives and diplays the title and artist of the track*/
+  info.innerHTML =
+    "<b>" + track_list[track_index].title + "</b> <br> <small>" + track_list[track_index].artist + "</small>";
+
   nowplaying.innerHTML = "playing " + (track_index + 1) + " of " + track_list.length;
- 
+
   /* moves on to the next track when the current one ends*/
   audio.addEventListener("ended", nextTrack);
-}
+} 
 
 /*wow beautiful... just like this the whole thing starts*/
 loadTrack(track_index);
