@@ -2,7 +2,7 @@
 # music-player
 an embedabble music player using css html and js, built for neocities but applicable elsewhere in theory.
 
-# Adding the plaer to your site! (the most simple no-js way)
+# Adding the player to your site! (the most simple no-js way)
 first make sure you understand its limitations by checking out the limitations section of this readme (found below)
 
 01. make sure that you have a div to place the player in. It automatically will adjust itself to fill the width & height of the div you place it in. 
