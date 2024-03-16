@@ -77,9 +77,9 @@ notice that there are two script tags- be sure to never switch the order of thes
    
 04. add this to your css, or but it in your html between style tags (<style></style>):
    ```
-/** if inserting into your css, just add the colors into your own root**/
+ /** if inserting into your css, just add the colors into your own root**/
 :root {
-  /**music player colors, feel free to change!**/
+  /**music player colors, feel free to change**/
   --playerbg: #A4BE7B;
   --playerborder: #5F8D4E;
   --playertext: #285430;
@@ -209,6 +209,41 @@ notice that there are two script tags- be sure to never switch the order of thes
   font-size: 1.8vw;
   background-color: transparent;
   border: none;
+}
+
+@media only screen and (max-width: 750px) {
+    .playercontainer .now-playing {
+    font-size: 1.7vw;
+  }
+
+  .playercontainer marquee {
+    font-size: 2.5vw;
+  }
+
+  .playercontainer .trackdurationcontrols {
+    gap: .4vw;
+    font-size: 1.7vw;
+  }
+
+  .playercontainer .trackdurationcontrols .bar {
+    margin-left: .2vw;
+    margin-right: .3vw;
+  }
+
+  .playercontainer .trackdurationcontrols #current-time {
+   margin-left: -2px; 
+  }
+
+  .playercontainer .trackdurationcontrols #duration {
+   margin-left: -3px; 
+  }
+
+  .playercontainer .trackcontrols button {
+    color: var(--playericons);
+    font-size: 4vw;
+    background-color: transparent;
+    border: none;
+  }
 }
    ```
 you can edit the css but i heavily advise against deleting any of it or changing things (other than color and dimensions) in the thumb or track. 
