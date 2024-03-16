@@ -31,7 +31,8 @@ first make sure you understand its limitations by checking out the limitations s
           <button id="playpause-btn" onclick="playPauseTrack()">▶</button>
           <button id="next-btn" onclick="nextTrack()">⏭</button>
         </div>
-        
+
+        <div class="creditstooltip">◦<span class="playercredits">music player by: ibroughtyoumybullets.neocities.org</span></div>
       
         <script type="text/javascript">
             /*your track list! to add more than 3 songs just add another one of these, comma at the end included!!
@@ -211,13 +212,40 @@ notice that there are two script tags- be sure to never switch the order of thes
   border: none;
 }
 
+.playercontainer .creditstooltip {
+   color: var(--playerbar);
+  text-align: right;
+  align-self: flex-end;
+  margin-bottom: -5px;
+}
+
+/* Tooltip text */
+.playercontainer .creditstooltip .playercredits {
+  visibility: hidden;
+  width: 170px;
+  font-size: 10px;
+  background-color: var(--playertitlebg);
+  color: white;
+  text-align: center;
+  padding: 2px 0;
+  border-radius: 2px;
+  margin: 18px 0 0 -162px;
+  position: absolute;
+  z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.playercontainer .creditstooltip:hover .playercredits {
+  visibility: visible;
+}
+
 @media only screen and (max-width: 750px) {
     .playercontainer .now-playing {
     font-size: 1.7vw;
   }
 
   .playercontainer marquee {
-    font-size: 2.5vw;
+    font-size: 2.3vw;
   }
 
   .playercontainer .trackdurationcontrols {
