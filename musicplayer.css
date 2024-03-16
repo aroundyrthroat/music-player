@@ -132,13 +132,40 @@
   border: none;
 }
 
+.playercontainer .creditstooltip {
+   color: var(--playerbar);
+  text-align: right;
+  align-self: flex-end;
+  margin-bottom: -5px;
+}
+
+/* Tooltip text */
+.playercontainer .creditstooltip .playercredits {
+  visibility: hidden;
+  width: 170px;
+  font-size: 10px;
+  background-color: var(--playertitlebg);
+  color: white;
+  text-align: center;
+  padding: 2px 0;
+  border-radius: 2px;
+  margin: 18px 0 0 -162px;
+  position: absolute;
+  z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.playercontainer .creditstooltip:hover .playercredits {
+  visibility: visible;
+}
+
 @media only screen and (max-width: 750px) {
     .playercontainer .now-playing {
     font-size: 1.7vw;
   }
 
   .playercontainer marquee {
-    font-size: 2.5vw;
+    font-size: 2.3vw;
   }
 
   .playercontainer .trackdurationcontrols {
